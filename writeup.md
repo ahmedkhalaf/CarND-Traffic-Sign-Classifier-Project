@@ -24,7 +24,14 @@ The goals / steps of this project are the following:
 [image5]: ./testimgs_orig/18_General_caution.jpg "18 General caution"
 [image6]: ./testimgs_orig/27_Pedestrians.JPG "27 Pedestrians"
 [image7]: ./testimgs_orig/31_Wild_animals_crossing.jpg "Wild animals crossing AND 60Km/h"
-[image8]: ./workbook_plots/learning_over_epochs.png "Accuracy over EPHOCs"
+[image8]: ./workbook_plots/learning_over_epochs.png "Accuracy over EPHOC Phases"
+[image9]: ./workbook_plots/img0_fm0.png "First layer Feature map"
+[image10]: ./workbook_plots/img1_fm0.png "First layer Feature map"
+[image11]: ./workbook_plots/img2_fm0.png.png "First layer Feature map"
+[image12]: ./workbook_plots/img0_fm1.png "Second layer Feature map"
+[image13]: ./workbook_plots/img1_fm1.png "Second layer Feature map"
+[image14]: ./workbook_plots/img2_fm1.png "Second layer Feature map"
+[image15]: ./workbook_plots/img0_fm2.png "Third layer Feature map"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -129,7 +136,7 @@ An iterative approach was chosen as follows:
 ** Augmented data
 ** Balanced data
 ** Training data
-* Training using Augmented data and training sub-set with balanced classes helped the model generalize well and eventually achieve 93.9% over long number of EPOCHs
+* Training using Augmented data and training sub-set with balanced classes helped the model generalize well and eventually achieve 93.9% over long number of EPOCH phases as shown in the plot below:
 
 ![alt text][image8]
 
@@ -235,7 +242,14 @@ Fith image was for a General caution sign, it was also classified correctly with
 
 
 
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-#### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+### Visualizing the Neural Network (See Step 4 of the Ipython notebook output for more details)
 
+The network seems to extract features related to shape, edges and internal content of the sign.
+Below, the network different "filters" or feature maps for three signs different in shape and symbol/content of the sign
 
+![alt text][image9]
+![alt text][image10]
+![alt text][image11]
+![alt text][image12]
+![alt text][image13]
+![alt text][image14]
