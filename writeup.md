@@ -73,10 +73,10 @@ Looking into few examples from random classes, it's clear that many images are q
 As a first step, I decided to convert the images to grayscale because this helps reduce processing and memory requirements.
 
 I decided to generate additional data to help balance the training data set in order to prevent over-fitting.
-To add more data to the the data set, I used the following transformations mentioned in the paper:
-http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf
+To add more data to the the data set, I used the following [transformations mentioned in the paper]
+(http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf)
 
-Samples are randomly perturbed in position ([-2,2] pixels), in scale ([.9,1.1] ratio) and rotation ([-15,+15] degrees)
+>**Samples are randomly perturbed in position ([-2,2] pixels), in scale ([.9,1.1] ratio) and rotation ([-15,+15] degrees)**
 
 Adding 119 - 160 images for 26 classes which sample count was less than statistical mean.
 Augmented training examples 4078
