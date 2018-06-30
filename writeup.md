@@ -2,8 +2,6 @@
 
 ## Writeup
 
-### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
 ---
 
 **Build a Traffic Sign Recognition Project**
@@ -26,7 +24,7 @@ The goals / steps of this project are the following:
 [image5]: ./testimgs_orig/18_General_caution.jpg "18 General caution"
 [image6]: ./testimgs_orig/27_Pedestrians.JPG "27 Pedestrians"
 [image7]: ./testimgs_orig/31_Wild_animals_crossing.jpg "Wild animals crossing AND 60Km/h"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image8]: ./workbook_plots/learning_over_epochs.png "Accuracy over EPHOCs"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -68,7 +66,7 @@ Looking into few examples from random classes, it's clear that many images are q
 
 ### Design and Test a Model Architecture
 
-#### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+#### 1. Pre-reprocessing, Balancing Population and Augmenting data
 
 As a first step, I decided to convert the images to grayscale because this helps reduce processing and memory requirements.
 
@@ -87,7 +85,7 @@ Here some examples of an augmented image and the corresponding original image:
 
 In addition, a balanced sub-set of training data was generated as show in iPython cell #4
 
-#### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 2. Model architecture overview
 
 My final model consisted of the following layers:
 
@@ -105,15 +103,17 @@ My final model consisted of the following layers:
  
 
 
-#### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 3. Training and Hyper Parameters
 
 To train the model, I used a relatively small learning rate of 0.0005 suitable for training over a longer number of EPOCHs (typically 1000).
-BATCH_SIZE was set to 500, also TensorFlow built-in Adam optimizer was used instead of gradient decsent.
-Hyper parameters were set to
-mu = 0
-sigma = 0.1
 
-#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+BATCH_SIZE was set to 500, also TensorFlow built-in Adam optimizer was used instead of gradient decsent.
+
+Hyper parameters were set to
+* mu = 0
+* sigma = 0.1
+
+#### 4. Model architecture development, training and Accuracy improvement
 
 My final model results were:
 * training set accuracy of 100%
@@ -132,6 +132,8 @@ An iterative approach was chosen as follows:
 ** Training data
 * Training using Augmented data and training sub-set with balanced classes helped the model generalize well and eventually achieve 93.9% over long number of EPOCHs
 
+![alt text][image8]
+
 ### Test a Model on New Images
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
@@ -140,7 +142,7 @@ I looked for traffic signs photos from [Wuppertal, Germany](https://wuppertal.de
 Here are five German traffic signs that I found on the web:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][image7]
 
 
 Pedestrians sign image might be really difficult to classify because it's circular, normally it's triangular. (external sign shape is show in visualizations for the feature maps).
@@ -177,7 +179,7 @@ Therefore, it might be better to use high resolution images taken from far dista
 
 This note could be important in a future phase related to car camera setup and integration with the network.
 
-#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### 3. Softmax probabilities for Predicting on new images for each prediction.
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
